@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prenota un Appuntamento</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="booking-flow">
+            <!-- Step 1: Preference -->
+            <div class="booking-step" id="step-preference">
+                <div class="step-header">
+                    <h2>Sei più libero le mattine o i pomeriggi?</h2>
+                </div>
+                <div class="preference-options">
+                    <div class="preference-option" data-preference="morning">
+                        <i class="fas fa-coffee"></i>
+                        <span>Mattina</span>
+                    </div>
+                    <div class="preference-option" data-preference="afternoon">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Pomeriggio</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Available Slots -->
+            <div class="booking-step hidden" id="step-timeslots">
+                <div class="step-header">
+                    <button class="back-icon" id="back-to-preference" aria-label="Torna indietro">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="date-selector">
+                    <button class="date-nav" id="prev-dates" aria-label="Date precedenti">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="dates-container" id="dates-container">
+                        <!-- Dates will be loaded here -->
+                    </div>
+                    <button class="date-nav" id="next-dates" aria-label="Date successive">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="timeslots-container" id="timeslots-container">
+                    <!-- Time slots will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Step 3: Contact Information -->
+            <div class="booking-step hidden" id="step-contact">
+                <div class="step-header">
+                    <button class="back-icon" id="back-to-timeslots" aria-label="Torna indietro">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <h2>La tua email</h2>
+                </div>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" required placeholder="La tua email">
+                    </div>
+                    <button type="submit" class="submit-button">Conferma Appuntamento</button>
+                </form>
+            </div>
+
+            <!-- Step 4: Confirmation -->
+            <div class="booking-step hidden" id="step-confirmation">
+                <div class="confirmation-content">
+                    <i class="fas fa-check-circle"></i>
+                    <h2>Appuntamento confermato con il tuo coach</h2>
+                    <div class="appointment-details" id="appointment-details">
+                        <!-- Appointment details will be added here -->
+                    </div>
+                    <p>Riceverai un'email di conferma con tutti i dettagli.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,13 @@
+{
+  "name": "gohighlevel-booking",
+  "version": "1.0.0",
+  "description": "Appointment booking system with GoHighLevel integration",
+  "main": "index.js",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "scripts": {
+    "start": "vercel dev",
+    "deploy": "vercel --prod"
+  }
+} 

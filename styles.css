@@ -1,0 +1,535 @@
+:root {
+    --primary-color: #681dfe;
+    --primary-hover: #5717d8;
+    --secondary-color: #f6f8fd;
+    --text-color: #1a1523;
+    --light-text: #71717a;
+    --border-color: #e2e8f0;
+    --success-color: #10b981;
+    --morning-color: #fbbf24;
+    --afternoon-color: #60a5fa;
+    --duration-color: #e2dcfe;
+    --radius: 0.75rem;
+    --radius-sm: 0.5rem;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--text-color);
+    background-color: #f9fafb;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 250px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    height: 250px;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 1.5rem 1.5rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--light-text);
+    font-size: 0.875rem;
+}
+
+.booking-step {
+    padding: 0.75rem;
+}
+
+.booking-step h2 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 0.75rem;
+}
+
+.step-header h2 {
+    margin-bottom: 0;
+}
+
+.back-icon {
+    position: absolute;
+    left: 0;
+    background: none;
+    border: none;
+    color: var(--light-text);
+    cursor: pointer;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.back-icon:hover {
+    color: var(--primary-color);
+    background-color: rgba(104, 29, 254, 0.05);
+}
+
+.back-icon i {
+    font-size: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Preference Step */
+.preference-options {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.preference-option {
+    flex: 1;
+    padding: 0.5rem 0.25rem;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+    max-width: 100px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.preference-option:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.preference-option.selected {
+    border-color: var(--primary-color);
+    background-color: rgba(104, 29, 254, 0.05);
+    box-shadow: 0 4px 8px rgba(104, 29, 254, 0.15);
+    transform: translateY(-3px);
+}
+
+.preference-option i {
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.preference-option:hover i {
+    transform: scale(1.1);
+}
+
+.preference-option.selected i {
+    transform: scale(1.2);
+}
+
+.preference-option[data-preference="morning"] i {
+    color: var(--primary-color);
+}
+
+.preference-option[data-preference="afternoon"] i {
+    color: var(--primary-color);
+}
+
+.preference-option span {
+    font-weight: 500;
+    font-size: 0.75rem;
+    color: var(--text-color);
+    display: block;
+}
+
+.preference-option.selected span {
+    color: var(--primary-color);
+}
+
+/* Date Selector - Minimal Redesign */
+.date-selector {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    border-radius: var(--radius);
+    background: none;
+    padding: 0;
+}
+
+.date-nav {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    margin: 0 0.25rem;
+}
+
+.date-nav:hover {
+    background-color: rgba(104, 29, 254, 0.1);
+}
+
+.date-nav:disabled {
+    color: var(--light-text);
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.dates-container {
+    display: flex;
+    gap: 0.25rem;
+    overflow-x: auto;
+    padding: 0.25rem;
+    margin: 0 0.25rem;
+    flex: 1;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    justify-content: center;
+}
+
+.dates-container::-webkit-scrollbar {
+    display: none;
+}
+
+.date-card {
+    min-width: 2.5rem;
+    padding: 0.35rem 0.15rem;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.date-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.date-card.selected {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(104, 29, 254, 0.25);
+}
+
+.date-card.selected .day-name,
+.date-card.selected .month {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.date-card .day-name {
+    font-size: 0.55rem;
+    color: var(--light-text);
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.date-card .day-number {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 0.1rem 0;
+}
+
+.date-card .month {
+    font-size: 0.55rem;
+    color: var(--light-text);
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* Time Slots - Minimal Redesign */
+.timeslots-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.35rem;
+    margin-top: 0.5rem;
+}
+
+.timeslot {
+    padding: 0.35rem 0.25rem;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+}
+
+.timeslot:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.timeslot.selected {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(104, 29, 254, 0.25);
+}
+
+.timeslot.selected .duration {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.timeslot .time {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--primary-color);
+}
+
+.timeslot .duration {
+    font-size: 0.6rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    background-color: var(--duration-color);
+    padding: 0.1rem 0.35rem;
+    border-radius: 1rem;
+    display: inline-block;
+}
+
+.timeslot .date {
+    font-size: 0.7rem;
+    color: var(--light-text);
+}
+
+/* Loading and messages */
+.loading-slots, .no-slots-message, .error-message {
+    grid-column: 1 / -1;
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--light-text);
+    background-color: white;
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* Contact Form Step */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.625rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    background-color: white;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 1px var(--primary-color);
+}
+
+.form-group textarea {
+    height: 5rem;
+    resize: vertical;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 0.625rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.submit-button:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Confirmation Step */
+.confirmation-content {
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+.confirmation-content i {
+    font-size: 3rem;
+    color: var(--success-color);
+    margin-bottom: 1rem;
+}
+
+.appointment-details {
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin: 1rem 0;
+    text-align: left;
+}
+
+.detail-item {
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-item:last-child {
+    margin-bottom: 0;
+}
+
+.detail-item .label {
+    font-weight: 500;
+    color: var(--light-text);
+    font-size: 0.75rem;
+    margin-bottom: 0.125rem;
+}
+
+.detail-item .value {
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+/* Media queries update */
+@media (max-width: 500px) {
+    .container {
+        margin: 0;
+        max-width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        min-height: 100vh;
+    }
+    
+    .booking-step {
+        padding: 1rem;
+    }
+    
+    .step-header {
+        margin-bottom: 1.25rem;
+    }
+    
+    .back-icon {
+        width: 2rem;
+        height: 2rem;
+        left: 0.25rem;
+    }
+    
+    .preference-options {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .preference-option {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 0.75rem;
+    }
+    
+    .timeslots-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .timeslot {
+        min-height: 4rem;
+    }
+    
+    #step-timeslots {
+        padding: 0.75rem 1rem 0.5rem;
+    }
+}
+
+/* Debug Area Styles - Da rimuovere */
+#debug-container, .debug-header, #clear-debug, #debug-output {
+    display: none !important;
+}
+
+/* Adjust step header margin for time selection step */
+#step-timeslots .step-header {
+    margin-bottom: 0.5rem;
+    justify-content: flex-start;
+}
+
+/* Special more compact styling for step-timeslots */
+#step-timeslots {
+    padding: 1.25rem 1.5rem 0.75rem;
+} 
