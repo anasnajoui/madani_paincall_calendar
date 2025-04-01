@@ -1,6 +1,6 @@
 // Configuration
 const CONFIG = {
-    calendarId: 'MyZldzj3ZYtwz5gjQW6D',
+    calendarId: 'vZmVsbt3Ajcbgdk4k6Lu',
     locationId: 's5MRQQ7j3TjZXRe0CtvE',
     apiKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2NhdGlvbl9pZCI6InM1TVJRUTdqM1RqWlhSZTBDdHZFIiwiY29tcGFueV9pZCI6IkR0anBxVUZmaHZyNlJIak9WcWR6IiwidmVyc2lvbiI6MSwiaWF0IjoxNjkxOTUwNTEzMjg4LCJzdWIiOiJ4TVZiOHVTVHNvTTkzNjNFbW1ubyJ9.aexZGVFaqG_L6n3VPzP7xdZIiyqKp8-6nEi3HZWQ7jI',
     apiEndpoint: 'https://rest.gohighlevel.com/v1/appointments/', // Endpoint per la prenotazione di appuntamenti
